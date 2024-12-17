@@ -1,0 +1,11 @@
+def end_game(self):
+        self.running = False
+        if self.timer_id:
+            self.root.after_cancel(self.timer_id)
+        self.hud.pack_forget()
+        elapsed = time.time() - self.start_time
+        self.canvas.create_text(200, 200, text=f"Вы победили!\nВаше время: {elapsed:.2f} с", font=("Arial", 20), fill="green")
+        self.start_button.pack()
+root = tk.Tk()
+ClickNumbersGame(root)
+root.mainloop()
